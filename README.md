@@ -6,9 +6,9 @@ Aurelia gives independent commerce teams one calm, decision-ready view of revenu
 The workspace brings net revenue, margin, order volume and average order value together with a monthly plan comparison and customer signal. Tremor supplies chart and metric building blocks; React Icons keeps navigation and actions consistent. The current foundation uses curated local sample records, which must be replaced with a connected merchant's data before operational use.
 
 ## Run locally
-Use Node.js 20 or newer. The project-local .npmrc is intentionally ignored by Git and directs npm to this machine's configured Nexus mirror.
+Use Node.js 20 or newer. The project-local `.npmrc` is intentionally ignored by Git because registry configuration is machine-specific. Use `npm ci` with your configured registry; npmjs is an approved fallback if a mirror is missing a dependency.
 
-    npm install
+    npm ci
     npm run dev
 
 Available checks are npm test, npm run typecheck and npm run build. The Vite PWA plugin creates an installable app shell and caches static assets. Verify offline behavior and update handling before a production release.

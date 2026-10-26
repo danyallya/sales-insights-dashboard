@@ -3,9 +3,12 @@
 Every day begins by reviewing the prior code, Git diff, backlog and open defects. Write or update tests for changed behavior, implement today's ticket, run tests/typecheck/build, update README and backlog, debug regressions and leave tomorrow ready. If dependencies or credentials prevent a check, document that reason and continue with review and static inspection. Add discovered work with priority.
 
 ## Foundation status
-Day 00 starter workspace is scaffolded. Packages are not installed and build/test validation has not been run. The Nexus .npmrc is local and ignored by Git.
+Day 00 foundation is complete. Dependencies and lockfile are installed; the smoke test (1/1), typecheck and production build passed. This Vite template has no standalone lint script. The local Nexus .npmrc is ignored.
 
 ## Daily tickets
+### Day 00 verification
+Nexus returned 404 for packages used by this project. Following the user's approval, dependencies were installed with npmjs fallback; the ignored local .npmrc keeps Nexus as default and contains only required scope overrides. Day 01 has not started.
+
 | Day | Deliverable |
 |---|---|
 | 01 | Define metric contracts and typed revenue, margin and order fixtures. |
