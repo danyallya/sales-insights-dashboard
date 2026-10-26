@@ -7,5 +7,5 @@
 - Dependencies: generated package-lock.json and installed packages after Nexus 404s. The user approved npmjs fallback. Local .npmrc remains ignored, preserves Nexus as default and maps only required scopes. No private registry config is tracked.
 - Checks: npm test -- --reporter=dot passed (1/1), npm run typecheck passed, and npm run build passed; no standalone lint script is configured in this Vite project. The PWA build generated its service worker and manifest.
 - Performance review: moved the Tremor chart into a separate chunk; first-load JavaScript is 187 KB (gzip 59.46 KB), and the chart is a 397 KB chunk (gzip 110.18 KB).
-- GitHub: public repository exists; this reviewed foundation update is ready to publish to main and day-00-foundation: https://github.com/danyallya/sales-insights-dashboard.
+- GitHub: Day 00 foundation commit 403427d is pushed to both main and day-00-foundation: https://github.com/danyallya/sales-insights-dashboard. Day 01 has not started.
 - Schedule: Day 01 has not started. The next task is Day 01 in BACKLOG.md; wait for the user to trigger that day.
