@@ -47,3 +47,7 @@ Mark each day Done, In progress or Blocked after its session. Keep tomorrow's ti
 
 - Day 01: Done. Synthetic metric fixtures now drive the dashboard totals; next is Day 02, layout tokens, persisted theme preference, and visible focus styles.
 - Review carry-over for Day 03: the current date-range control changes its label without changing the displayed period data; implement stable periods and recalculate KPIs and chart values together.
+
+## Delivery process update — 2026-10-27
+
+Effective Day 02: apply [DELIVERY-POLICY.md](DELIVERY-POLICY.md) to every ticket. Complete Aurelia's own reviewed PR and merge (or record a concrete external blocker) before the next portfolio repository. Choose commit boundaries and counts from the actual metric/UI work. Day 01 and the Day 02–30 product schedule remain as recorded.

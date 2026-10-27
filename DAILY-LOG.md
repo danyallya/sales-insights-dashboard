@@ -18,3 +18,10 @@
 - Documentation: README now defines the current metric contract; BACKLOG marks Day 01 done and records the Day 03 carry-over that the date-range control currently changes its label without applying new data.
 - Git: implementation commit `30458b6` (`feat: define revenue metric contracts`) is pushed to `day-01/metric-contracts` and fast-forwarded to `main`. This daily-log entry is included in the final synchronization of both branches. No `.npmrc`, environment files, credentials, or generated build output are tracked.
 - Next: Day 02 — establish layout tokens, persist theme preference, and add visible focus styles.
+
+## Delivery policy maintenance — 2026-10-27
+
+- User request: raise per-project review care, run portfolio projects strictly one at a time, use project-specific coherent commits and a separate branch/PR with GitHub panel review and merge.
+- Aurelia policy now requires aligned integer-cent metrics, chart alternatives, truthful sample/source labels and product-specific UI evidence. Linked it from AGENTS, README and BACKLOG; the next product task is still Day 02.
+- Scope: documentation only on `docs/aurelia-review-gates`. Reviewed the changed Markdown and used `git diff --check`; application tests/build are not rerun for this workflow-only update.
+- Publication: this entry records the pre-merge state. The actual PR URL, panel review, merge commit and local sync receipt are recorded in the portfolio workspace DELIVERY-RECEIPTS.md after completion and reconciled at the next authorized log update.
