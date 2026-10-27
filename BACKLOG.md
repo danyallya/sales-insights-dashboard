@@ -51,3 +51,7 @@ Mark each day Done, In progress or Blocked after its session. Keep tomorrow's ti
 ## Delivery process update — 2026-10-27
 
 Effective Day 02: apply [DELIVERY-POLICY.md](DELIVERY-POLICY.md) to every ticket. Complete Aurelia's own reviewed PR and merge (or record a concrete external blocker) before the next portfolio repository. Choose commit boundaries and counts from the actual metric/UI work. Day 01 and the Day 02–30 product schedule remain as recorded.
+
+## Contribution integration — 2026-10-27
+
+Effective Day 02: apply [CONTRIBUTING.md](CONTRIBUTING.md) inside existing tickets. At already scheduled weekly reviews, assess real feedback such as a synthetic metric-reconciliation case with expected cents and aligned periods; at documentation/setup tickets, improve chart alternatives and a calculation walkthrough. Day 30 records actual contribution evidence and outstanding external dependencies. No day is renumbered and no quota or badge is a completion criterion. Next scope remains: Day 02 — layout tokens, persisted theme preference and visible focus styles.

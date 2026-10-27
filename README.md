@@ -25,3 +25,7 @@ The interface uses a deep graphite canvas, muted emerald accents and a deliberat
 ## Delivery and metric review
 
 From Day 02, [DELIVERY-POLICY.md](DELIVERY-POLICY.md) governs sequential work, scope-driven commits and Aurelia's own branch/PR. Panel review must reconcile metric values and chart alternatives before merging; a passing check in another product is not evidence for this dashboard.
+
+## Contributions and examples
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for reproducible reports, genuine collaboration and the planned chart alternatives and a calculation walkthrough. Contributions follow the product backlog and reviewed PR workflow.

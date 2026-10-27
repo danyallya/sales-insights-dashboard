@@ -37,3 +37,7 @@ Historical Day 00/01 entries describe their original workflow. This policy super
 A metric reconciliation fix and an independently complete theme-preference change can merit separate commits; a theme change and its focused tests can belong together. Titles should identify the metric or interaction actually changed.
 
 Next planned scope: Day 02 — layout tokens, persisted theme preference and visible focus styles.
+
+## Contribution evidence
+
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) within the existing delivery scope. Consider a synthetic metric-reconciliation case with expected cents and aligned periods. Keep real issue links and agreed coauthor attribution with the matching change. Profile goals do not change commit counts, review gates, day numbering or authorization for external contact/settings/payment.
