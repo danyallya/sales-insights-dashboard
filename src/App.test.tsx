@@ -11,5 +11,11 @@ describe("Aurelia Revenue Intelligence", () => {
     render(<App />);
     expect(screen.getByRole("heading", { name: /Revenue, in focus/i })).toBeInTheDocument();
     expect(await screen.findByTestId("revenue-chart")).toBeInTheDocument();
+    expect(screen.getByText("$742,000")).toBeInTheDocument();
+    expect(screen.getByText("68.4%")).toBeInTheDocument();
+    expect(screen.getByText("10,024")).toBeInTheDocument();
+    expect(screen.getByText("$74.02")).toBeInTheDocument();
+    expect(screen.getByText(/illustrative sample data/i)).toBeInTheDocument();
+    expect(screen.queryByText(/synced from Shopify/i)).not.toBeInTheDocument();
   });
 });

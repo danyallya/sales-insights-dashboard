@@ -11,7 +11,7 @@ Nexus returned 404 for packages used by this project. Following the user's appro
 
 | Day | Deliverable |
 |---|---|
-| 01 | Define metric contracts and typed revenue, margin and order fixtures. |
+| 01 | **Done** — define metric contracts and typed revenue, margin and order fixtures; derive dashboard KPIs and plan variance from aligned sample periods. |
 | 02 | Establish layout tokens, persisted theme preference and visible focus styles. |
 | 03 | Add date-range selection with stable periods and applied-state feedback. |
 | 04 | Add sales-channel filters and reconcile filtered KPI totals. |
@@ -44,3 +44,6 @@ Nexus returned 404 for packages used by this project. Following the user's appro
 
 ## Completion tracking
 Mark each day Done, In progress or Blocked after its session. Keep tomorrow's ticket ready and explain new backlog items.
+
+- Day 01: Done. Synthetic metric fixtures now drive the dashboard totals; next is Day 02, layout tokens, persisted theme preference, and visible focus styles.
+- Review carry-over for Day 03: the current date-range control changes its label without changing the displayed period data; implement stable periods and recalculate KPIs and chart values together.

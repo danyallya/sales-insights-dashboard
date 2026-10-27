@@ -18,3 +18,6 @@ The 30-day plan covers merchant onboarding, accessible chart interactions, date 
 
 ## Design, accessibility and data
 The interface uses a deep graphite canvas, muted emerald accents and a deliberate light theme. Layout adapts from a full navigation rail to a compact phone view; wide tables remain horizontally scrollable. Daily work must preserve keyboard access, visible focus, text summaries for charts and readable contrast in both themes. Sample records are synthetic. Never commit merchant exports, credentials, environment files or the local npm configuration.
+
+### Metric contract for the current sample
+`src/data/metrics.ts` stores USD amounts as integer cents. Net revenue is the sum of monthly net revenue; gross margin is `(net revenue - cost of goods sold) / net revenue`; plan variance is `(net revenue - plan) / plan`; order count is the sum of monthly orders; and average order value is `net revenue / order count`, rounded to cents. Monthly revenue, plan, margin-cost and order-count fixtures cover the same twelve months and are explicitly illustrative. The customer table is also sample content. No live Shopify or merchant connection exists yet.
