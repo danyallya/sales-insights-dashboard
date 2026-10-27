@@ -25,3 +25,10 @@
 - Aurelia policy now requires aligned integer-cent metrics, chart alternatives, truthful sample/source labels and product-specific UI evidence. Linked it from AGENTS, README and BACKLOG; the next product task is still Day 02.
 - Scope: documentation only on `docs/aurelia-review-gates`. Reviewed the changed Markdown and used `git diff --check`; application tests/build are not rerun for this workflow-only update.
 - Publication: this entry records the pre-merge state. The actual PR URL, panel review, merge commit and local sync receipt are recorded in the portfolio workspace DELIVERY-RECEIPTS.md after completion and reconciled at the next authorized log update.
+
+## Contribution guidance maintenance — 2026-10-27
+
+- User request: integrate achievable GitHub profile goals naturally into future project work. Added Aurelia contribution guidance around a synthetic metric-reconciliation case with expected cents and aligned periods and useful documentation examples. Preserved the daily backlog and all delivery gates.
+- Previous delivery-policy PR #1 is merged in origin/main; this maintenance starts from that merged history. No badge, collaborator, star or accepted answer is claimed.
+- Documentation-only scope on docs/aurelia-community; reviewed Markdown and git diff --check. App tests/build are not rerun because runtime behavior is unchanged.
+- Publication is pre-merge here; the final PR/head/panel/check/merge/sync evidence goes in the workspace DELIVERY-RECEIPTS.md after completion. Next: Day 02 — layout tokens, persisted theme preference and visible focus styles. Wait for the user's day trigger.
