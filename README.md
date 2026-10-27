@@ -21,3 +21,7 @@ The interface uses a deep graphite canvas, muted emerald accents and a deliberat
 
 ### Metric contract for the current sample
 `src/data/metrics.ts` stores USD amounts as integer cents. Net revenue is the sum of monthly net revenue; gross margin is `(net revenue - cost of goods sold) / net revenue`; plan variance is `(net revenue - plan) / plan`; order count is the sum of monthly orders; and average order value is `net revenue / order count`, rounded to cents. Monthly revenue, plan, margin-cost and order-count fixtures cover the same twelve months and are explicitly illustrative. The customer table is also sample content. No live Shopify or merchant connection exists yet.
+
+## Delivery and metric review
+
+From Day 02, [DELIVERY-POLICY.md](DELIVERY-POLICY.md) governs sequential work, scope-driven commits and Aurelia's own branch/PR. Panel review must reconcile metric values and chart alternatives before merging; a passing check in another product is not evidence for this dashboard.

@@ -8,3 +8,9 @@
 - Update BACKLOG.md after each session: record completion, add discovered work and leave tomorrow's scope explicit.
 - Keep .npmrc local and untracked. Never commit credentials, environment files, merchant data or build output. Do not force-push or rewrite Git history.
 - Work only inside this project unless the user expands scope. Use descriptive day branches and meaningful commits after checks pass.
+
+## Delivery from Day 02
+
+- Read and follow [DELIVERY-POLICY.md](DELIVERY-POLICY.md). Finish Aurelia, including its own PR panel review and merge or a recorded external blocker, before starting the next portfolio project. No parallel project work.
+- Derive commit count, content and wording from Aurelia's real metric, chart and interaction changes; do not copy a fixed commit pattern from other projects.
+- Push a repository-specific branch, review the latest head and checks in GitHub, and merge through its PR panel. Required independent approvals remain external gates; do not substitute self-review for them.
