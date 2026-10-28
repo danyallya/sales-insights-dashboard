@@ -12,7 +12,7 @@ Nexus returned 404 for packages used by this project. Following the user's appro
 | Day | Deliverable |
 |---|---|
 | 01 | **Done** — define metric contracts and typed revenue, margin and order fixtures; derive dashboard KPIs and plan variance from aligned sample periods. |
-| 02 | Establish layout tokens, persisted theme preference and visible focus styles. |
+| 02 | Implemented, delivery blocked — layout tokens, persisted theme preference and visible focus styles; browser UI/PR panel gates pending. |
 | 03 | Add date-range selection with stable periods and applied-state feedback. |
 | 04 | Add sales-channel filters and reconcile filtered KPI totals. |
 | 05 | Add chart loading, empty and error states with text summaries. |

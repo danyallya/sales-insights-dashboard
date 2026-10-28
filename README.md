@@ -26,6 +26,10 @@ The interface uses a deep graphite canvas, muted emerald accents and a deliberat
 
 From Day 02, [DELIVERY-POLICY.md](DELIVERY-POLICY.md) governs sequential work, scope-driven commits and Aurelia's own branch/PR. Panel review must reconcile metric values and chart alternatives before merging; a passing check in another product is not evidence for this dashboard.
 
+## Appearance preferences and layout
+
+The dashboard stores only `light` or `dark` under the browser-local `aurelia.theme` key. The initial default is dark; invalid values and unavailable storage fall back safely, and toggling remains usable without storage. The toggle exposes its pressed (dark) state. Shared layout tokens define the rail, page gutter, maximum reading width, panel spacing and radius; phone/tablet overrides retain table scrolling. Keyboard focus uses an offset outline in both palettes, and reduced-motion preferences disable decorative transitions. Browser visual and keyboard review is pending while browser access is disabled; automated DOM checks are not proof of visual accessibility.
+
 ## Contributions and examples
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for reproducible reports, genuine collaboration and the planned chart alternatives and a calculation walkthrough. Contributions follow the product backlog and reviewed PR workflow.

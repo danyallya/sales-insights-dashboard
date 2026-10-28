@@ -32,3 +32,11 @@
 - Previous delivery-policy PR #1 is merged in origin/main; this maintenance starts from that merged history. No badge, collaborator, star or accepted answer is claimed.
 - Documentation-only scope on docs/aurelia-community; reviewed Markdown and git diff --check. App tests/build are not rerun because runtime behavior is unchanged.
 - Publication is pre-merge here; the final PR/head/panel/check/merge/sync evidence goes in the workspace DELIVERY-RECEIPTS.md after completion. Next: Day 02 — layout tokens, persisted theme preference and visible focus styles. Wait for the user's day trigger.
+
+## Day 02 — appearance and layout — 2026-10-28 (Asia/Tehran)
+
+- Reconciled earlier maintenance receipts: policy PR #1 and contribution PR #2 merged; origin/main 4ce41c7 includes both. Reviewed previous metric contracts, chart component and presentation styles. Day 03 date-range data mismatch remains scheduled and visible.
+- Added shared rail/gutter/width/panel tokens, palette-aware focus outlines and improved small-text/positive/negative colors. Theme preference restores and persists with a product-specific key, reports pressed state, and tolerates invalid or blocked storage. Reduced motion disables decorative transitions.
+- Checks: npm test -- --reporter=dot passed (3 files, 7 tests). npm run build passed, including TypeScript and PWA generation. git diff --check passed. No standalone lint script exists. No private configuration or generated output is staged.
+- Browser blocker: local browser use is disabled in Work settings (observed today). Visual phone/tablet/desktop, keyboard focus and light/dark inspection, PR creation, exact-head Files changed/Checks/conversation review and panel merge remain pending. No CI or approval is claimed. Branch day-02/theme-layout-focus will be pushed; final head/status is recorded in the workspace receipt.
+- Contribution evidence: useful regression cases for preference restoration/storage failure; no new issue, coauthor, star or badge claim. Next product scope: Day 03 stable date periods and applied-state feedback, after finishing Day 02 delivery gates.
