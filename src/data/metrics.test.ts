@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   dashboardMetrics,
+  getPeriodSnapshot,
   marginPeriods,
   orderPeriods,
   revenuePeriods,
@@ -33,5 +34,15 @@ describe('Aurelia metric contracts', () => {
     expect(() => summarizeMetrics(revenuePeriods, invalidMargins, orderPeriods)).toThrow(
       'Metric fixtures must have positive revenue and orders, with costs between zero and revenue.',
     );
+  });
+
+  it('returns a stable quarter snapshot with aligned totals and chart months', () => {
+    const q4 = getPeriodSnapshot('q4');
+
+    expect(q4.label).toBe('Q4 · Oct–Dec');
+    expect(q4.metrics.netRevenueCents).toBe(25_300_000);
+    expect(q4.metrics.planRevenueCents).toBe(19_300_000);
+    expect(q4.metrics.orderCount).toBe(3_004);
+    expect(q4.chartData.map(({ month }) => month)).toEqual(['Oct', 'Nov', 'Dec']);
   });
 });

@@ -11,6 +11,7 @@
 .revenue-app :is(button,a,input,select,textarea):focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 .rail :is(button,a):focus-visible{outline-color:#b9e7c7}
 .delta.up,.positive,.chart-legend strong,.insight-bottom a,.text-action{color:var(--positive)}.delta.down,.negative{color:var(--negative)}
+.period-picker{position:relative;display:inline-flex;align-items:center}.period-picker>svg{position:absolute;left:11px;z-index:1;pointer-events:none;color:var(--muted)}.period-picker select{appearance:none;padding-left:31px;padding-right:30px;max-width:235px}.period-picker:after{content:'';position:absolute;right:12px;top:14px;width:6px;height:6px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);pointer-events:none}.range-feedback{margin:-12px 0 14px;color:var(--muted);font-size:10px}.stat-foot,.table-caption{margin:12px 0 0;color:var(--muted);font-size:8px}.table-caption{display:block;width:100%;max-width:none;margin-top:5px}.revenue-chart .recharts-bar.fill-emerald-500 .recharts-bar-rectangle rect{fill:#67c98d!important}.revenue-chart .recharts-bar.fill-slate-500 .recharts-bar-rectangle rect{fill:#71818b!important}
 @media(max-width:980px){.revenue-app{--page-gutter:3%}}
 @media(max-width:640px){.revenue-app{--rail-width:52px;--page-gutter:12px;--panel-gap:8px}.topbar{padding-inline:var(--page-gutter)}}
 @media(prefers-reduced-motion:reduce){.revenue-app *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

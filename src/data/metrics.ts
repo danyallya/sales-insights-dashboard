@@ -49,6 +49,16 @@ export const marginPeriods: MarginPeriodFixture[] = revenuePeriods.map(({ month,
 
 const monthlyOrderCounts = [700, 720, 740, 760, 780, 800, 820, 840, 860, 925, 960, 1_119];
 
+export type PeriodRange = 'full-year' | 'q1' | 'q2' | 'q3' | 'q4';
+
+export const periodRangeOptions: { value: PeriodRange; label: string; start: number; end: number; periodLabel: string }[] = [
+  { value: 'full-year', label: 'Full year (Jan–Dec)', start: 0, end: 12, periodLabel: 'Jan–Dec' },
+  { value: 'q1', label: 'Q1 (Jan–Mar)', start: 0, end: 3, periodLabel: 'Q1 · Jan–Mar' },
+  { value: 'q2', label: 'Q2 (Apr–Jun)', start: 3, end: 6, periodLabel: 'Q2 · Apr–Jun' },
+  { value: 'q3', label: 'Q3 (Jul–Sep)', start: 6, end: 9, periodLabel: 'Q3 · Jul–Sep' },
+  { value: 'q4', label: 'Q4 (Oct–Dec)', start: 9, end: 12, periodLabel: 'Q4 · Oct–Dec' },
+];
+
 export const orderPeriods: OrderPeriodFixture[] = months.map((month, index) => ({
   month,
   orderCount: monthlyOrderCounts[index],
@@ -96,11 +106,30 @@ export function summarizeMetrics(
 
 export const dashboardMetrics = summarizeMetrics(revenuePeriods, marginPeriods, orderPeriods);
 
-export const revenueChartData = revenuePeriods.map(({ month, netRevenueCents, planRevenueCents }) => ({
-  month,
-  Revenue: netRevenueCents / 100_000,
-  Plan: planRevenueCents / 100_000,
-}));
+export function getPeriodSnapshot(range: PeriodRange) {
+  const option = periodRangeOptions.find(({ value }) => value === range);
+
+  if (!option) {
+    throw new Error(`Unknown reporting period: ${range}`);
+  }
+
+  const selectedRevenue = revenuePeriods.slice(option.start, option.end);
+  const selectedMonths = selectedRevenue.map(({ month }) => month);
+  const selectedMargins = marginPeriods.filter(({ month }) => selectedMonths.includes(month));
+  const selectedOrders = orderPeriods.filter(({ month }) => selectedMonths.includes(month));
+
+  return {
+    label: option.periodLabel,
+    metrics: summarizeMetrics(selectedRevenue, selectedMargins, selectedOrders),
+    chartData: selectedRevenue.map(({ month, netRevenueCents, planRevenueCents }) => ({
+      month,
+      Revenue: netRevenueCents / 100_000,
+      Plan: planRevenueCents / 100_000,
+    })),
+  };
+}
+
+export const revenueChartData = getPeriodSnapshot('full-year').chartData;
 
 export function formatCurrency(cents: Cents, maximumFractionDigits = 2): string {
   return new Intl.NumberFormat('en-US', {

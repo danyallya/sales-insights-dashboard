@@ -22,13 +22,15 @@ The interface uses a deep graphite canvas, muted emerald accents and a deliberat
 ### Metric contract for the current sample
 `src/data/metrics.ts` stores USD amounts as integer cents. Net revenue is the sum of monthly net revenue; gross margin is `(net revenue - cost of goods sold) / net revenue`; plan variance is `(net revenue - plan) / plan`; order count is the sum of monthly orders; and average order value is `net revenue / order count`, rounded to cents. Monthly revenue, plan, margin-cost and order-count fixtures cover the same twelve months and are explicitly illustrative. The customer table is also sample content. No live Shopify or merchant connection exists yet.
 
+The reporting-period selector applies the full-year or one of four stable calendar-quarter ranges to revenue, plan, margin and order fixtures together. Selected months update the KPI cards, revenue trend, plan variance and a polite status message. Customer account rows are separate full-year synthetic examples and are labeled as unfiltered. Period-change indicators are omitted because the sample has no prior-year comparison series.
+
 ## Delivery and metric review
 
 From Day 02, [DELIVERY-POLICY.md](DELIVERY-POLICY.md) governs sequential work, scope-driven commits and Aurelia's own branch/PR. Panel review must reconcile metric values and chart alternatives before merging; a passing check in another product is not evidence for this dashboard.
 
 ## Appearance preferences and layout
 
-The dashboard stores only `light` or `dark` under the browser-local `aurelia.theme` key. The initial default is dark; invalid values and unavailable storage fall back safely, and toggling remains usable without storage. The toggle exposes its pressed (dark) state. Shared layout tokens define the rail, page gutter, maximum reading width, panel spacing and radius; phone/tablet overrides retain table scrolling. Keyboard focus uses an offset outline in both palettes, and reduced-motion preferences disable decorative transitions. Browser visual and keyboard review is pending while browser access is disabled; automated DOM checks are not proof of visual accessibility.
+The dashboard stores only `light` or `dark` under the browser-local `aurelia.theme` key. The initial default is dark; invalid values and unavailable storage fall back safely, and toggling remains usable without storage. The toggle exposes its pressed (dark) state. Shared layout tokens define the rail, page gutter, maximum reading width, panel spacing and radius; phone/tablet overrides retain table scrolling. Keyboard focus uses an offset outline in both palettes, and reduced motion disables decorative transitions. Automated DOM checks do not replace browser visual and keyboard review.
 
 ## Contributions and examples
 
