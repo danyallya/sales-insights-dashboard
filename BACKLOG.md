@@ -12,8 +12,8 @@ Nexus returned 404 for packages used by this project. Following the user's appro
 | Day | Deliverable |
 |---|---|
 | 01 | **Done** — define metric contracts and typed revenue, margin and order fixtures; derive dashboard KPIs and plan variance from aligned sample periods. |
-| 02 | Implemented, delivery blocked — layout tokens, persisted theme preference and visible focus styles; browser UI/PR panel gates pending. |
-| 03 | Add date-range selection with stable periods and applied-state feedback. |
+| 02 | **Done** — layout tokens, persisted theme preference and visible focus styles; PR #4 merged after exact-head panel review. |
+| 03 | **Implementation done; delivery pending** — stable full-year/quarter date ranges update aligned revenue, margin, order and plan metrics plus the chart; account samples are labeled as full-year. PR review/merge is pending. |
 | 04 | Add sales-channel filters and reconcile filtered KPI totals. |
 | 05 | Add chart loading, empty and error states with text summaries. |
 | 06 | Add sortable, paginated customer cohort table. |
@@ -45,8 +45,10 @@ Nexus returned 404 for packages used by this project. Following the user's appro
 ## Completion tracking
 Mark each day Done, In progress or Blocked after its session. Keep tomorrow's ticket ready and explain new backlog items.
 
-- Day 01: Done. Synthetic metric fixtures now drive the dashboard totals; next is Day 02, layout tokens, persisted theme preference, and visible focus styles.
-- Review carry-over for Day 03: the current date-range control changes its label without changing the displayed period data; implement stable periods and recalculate KPIs and chart values together.
+- Day 01: Done. Synthetic metric fixtures now drive the dashboard totals.
+- Day 02: Done. Reconciled PR #4's merge receipt and local `main` at `0f5c990`; appearance preferences, layout tokens and visible focus styles are delivered.
+- Day 03: Implementation done; PR review/merge pending. The prior date control only changed its label; quarter snapshots now recalculate aligned metrics and chart points. Customer rows remain illustrative full-year samples and say so.
+- Next: Day 04 — add sales-channel filters and reconcile filtered KPI totals.
 
 ## Delivery process update — 2026-10-27
 
@@ -54,4 +56,4 @@ Effective Day 02: apply [DELIVERY-POLICY.md](DELIVERY-POLICY.md) to every ticket
 
 ## Contribution integration — 2026-10-27
 
-Effective Day 02: apply [CONTRIBUTING.md](CONTRIBUTING.md) inside existing tickets. At already scheduled weekly reviews, assess real feedback such as a synthetic metric-reconciliation case with expected cents and aligned periods; at documentation/setup tickets, improve chart alternatives and a calculation walkthrough. Day 30 records actual contribution evidence and outstanding external dependencies. No day is renumbered and no quota or badge is a completion criterion. Next scope remains: Day 02 — layout tokens, persisted theme preference and visible focus styles.
+Effective Day 02: apply [CONTRIBUTING.md](CONTRIBUTING.md) inside existing tickets. At already scheduled weekly reviews, assess real feedback such as a synthetic metric-reconciliation case with expected cents and aligned periods; at documentation/setup tickets, improve chart alternatives and a calculation walkthrough. Day 30 records actual contribution evidence and outstanding external dependencies. No day is renumbered and no quota or badge is a completion criterion. The next scope is Day 04 — sales-channel filters and reconciled totals.
