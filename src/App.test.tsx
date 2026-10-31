@@ -31,8 +31,25 @@ describe("Aurelia Revenue Intelligence", () => {
     expect(screen.getByText("$122,000")).toBeInTheDocument();
     expect(screen.getByText("2,160")).toBeInTheDocument();
     expect(screen.getByText("$56.48")).toBeInTheDocument();
-    expect(screen.getByText("Revenue KPIs and trend show Q1 · Jan–Mar. Account examples remain full-year samples."))
+    expect(screen.getByText("Revenue KPIs and trend show Q1 · Jan–Mar for All channels. Channel splits are illustrative; account examples remain full-year and unfiltered."))
       .toHaveAttribute("role", "status");
-    expect(screen.getByText("Full-year account examples; not filtered by reporting period.")).toBeInTheDocument();
+    expect(screen.getByText("Full-year account examples; not filtered by reporting period or sales channel.")).toBeInTheDocument();
+  });
+
+  it("filters the selected reporting period by sales channel and announces the sample split", () => {
+    render(<App />);
+
+    fireEvent.change(screen.getByRole("combobox", { name: "Reporting period" }), {
+      target: { value: "q1" },
+    });
+    fireEvent.change(screen.getByRole("combobox", { name: "Sales channel" }), {
+      target: { value: "wholesale" },
+    });
+
+    expect(screen.getByText("$36,600")).toBeInTheDocument();
+    expect(screen.getByText("648")).toBeInTheDocument();
+    expect(screen.getByText("$56.48")).toBeInTheDocument();
+    expect(screen.getByText("Revenue KPIs and trend show Q1 · Jan–Mar for Wholesale. Channel splits are illustrative; account examples remain full-year and unfiltered."))
+      .toHaveAttribute("role", "status");
   });
 });

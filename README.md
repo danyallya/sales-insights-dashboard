@@ -24,6 +24,8 @@ The interface uses a deep graphite canvas, muted emerald accents and a deliberat
 
 The reporting-period selector applies the full-year or one of four stable calendar-quarter ranges to revenue, plan, margin and order fixtures together. Selected months update the KPI cards, revenue trend, plan variance and a polite status message. Customer account rows are separate full-year synthetic examples and are labeled as unfiltered. Period-change indicators are omitted because the sample has no prior-year comparison series.
 
+The sales-channel selector applies Direct, Wholesale or Marketplace fixtures to the same KPI and chart calculations. The channel allocation is illustrative (50%, 30% and the residual share); cents and whole orders are split per month, with the residual assigned to Marketplace so channel totals reconcile exactly to the source month. No connected channel data exists. The customer account examples remain full-year and unfiltered by both selectors.
+
 ## Delivery and metric review
 
 From Day 02, [DELIVERY-POLICY.md](DELIVERY-POLICY.md) governs sequential work, scope-driven commits and Aurelia's own branch/PR. Panel review must reconcile metric values and chart alternatives before merging; a passing check in another product is not evidence for this dashboard.
