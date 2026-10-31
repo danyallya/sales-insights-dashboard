@@ -64,6 +64,55 @@ export const orderPeriods: OrderPeriodFixture[] = months.map((month, index) => (
   orderCount: monthlyOrderCounts[index],
 }));
 
+export type SalesChannel = 'all' | 'direct' | 'wholesale' | 'marketplace';
+
+export const salesChannelOptions: { value: SalesChannel; label: string }[] = [
+  { value: 'all', label: 'All channels' },
+  { value: 'direct', label: 'Direct' },
+  { value: 'wholesale', label: 'Wholesale' },
+  { value: 'marketplace', label: 'Marketplace' },
+];
+
+type ChannelPeriodFixture = {
+  month: string;
+  channel: Exclude<SalesChannel, 'all'>;
+  netRevenueCents: Cents;
+  planRevenueCents: Cents;
+  costOfGoodsSoldCents: Cents;
+  orderCount: number;
+};
+
+function splitAcrossChannels(total: number) {
+  const direct = Math.round(total * 0.5);
+  const wholesale = Math.round(total * 0.3);
+
+  return {
+    direct,
+    wholesale,
+    marketplace: total - direct - wholesale,
+  };
+}
+
+// Synthetic channel shares are deliberately illustrative. The residual share
+// keeps every monthly revenue, plan, cost and order total exactly reconciled.
+export const channelPeriodFixtures: ChannelPeriodFixture[] = revenuePeriods.flatMap((revenue, index) => {
+  const margin = marginPeriods[index];
+  const orders = orderPeriods[index];
+  const channelRevenue = splitAcrossChannels(revenue.netRevenueCents);
+  const channelPlan = splitAcrossChannels(revenue.planRevenueCents);
+  const channelCosts = splitAcrossChannels(margin.costOfGoodsSoldCents);
+  const channelOrders = splitAcrossChannels(orders.orderCount);
+
+  return (['direct', 'wholesale', 'marketplace'] as const).map((channel) => ({
+    month: revenue.month,
+    channel,
+    netRevenueCents: channelRevenue[channel],
+    planRevenueCents: channelPlan[channel],
+    costOfGoodsSoldCents: channelCosts[channel],
+    orderCount: channelOrders[channel],
+  }));
+});
+
 export function summarizeMetrics(
   revenues: RevenuePeriodFixture[],
   margins: MarginPeriodFixture[],
@@ -106,25 +155,48 @@ export function summarizeMetrics(
 
 export const dashboardMetrics = summarizeMetrics(revenuePeriods, marginPeriods, orderPeriods);
 
-export function getPeriodSnapshot(range: PeriodRange) {
+export function getPeriodSnapshot(range: PeriodRange, channel: SalesChannel = 'all') {
   const option = periodRangeOptions.find(({ value }) => value === range);
 
   if (!option) {
     throw new Error(`Unknown reporting period: ${range}`);
   }
 
+  const channelOption = salesChannelOptions.find(({ value }) => value === channel);
+
+  if (!channelOption) {
+    throw new Error(`Unknown sales channel: ${channel}`);
+  }
+
   const selectedRevenue = revenuePeriods.slice(option.start, option.end);
-  const selectedMonths = selectedRevenue.map(({ month }) => month);
-  const selectedMargins = marginPeriods.filter(({ month }) => selectedMonths.includes(month));
-  const selectedOrders = orderPeriods.filter(({ month }) => selectedMonths.includes(month));
+  const selectedPeriods = selectedRevenue.map(({ month }) => {
+    const channelRows = channelPeriodFixtures.filter((period) =>
+      period.month === month && (channel === 'all' || period.channel === channel),
+    );
+    const netRevenueCents = channelRows.reduce((sum, period) => sum + period.netRevenueCents, 0);
+    const planRevenueCents = channelRows.reduce((sum, period) => sum + period.planRevenueCents, 0);
+    const costOfGoodsSoldCents = channelRows.reduce((sum, period) => sum + period.costOfGoodsSoldCents, 0);
+    const orderCount = channelRows.reduce((sum, period) => sum + period.orderCount, 0);
+
+    return {
+      revenue: { month, netRevenueCents, planRevenueCents },
+      margin: { month, netRevenueCents, costOfGoodsSoldCents },
+      orders: { month, orderCount },
+    };
+  });
 
   return {
     label: option.periodLabel,
-    metrics: summarizeMetrics(selectedRevenue, selectedMargins, selectedOrders),
-    chartData: selectedRevenue.map(({ month, netRevenueCents, planRevenueCents }) => ({
-      month,
-      Revenue: netRevenueCents / 100_000,
-      Plan: planRevenueCents / 100_000,
+    channelLabel: channelOption.label,
+    metrics: summarizeMetrics(
+      selectedPeriods.map(({ revenue }) => revenue),
+      selectedPeriods.map(({ margin }) => margin),
+      selectedPeriods.map(({ orders }) => orders),
+    ),
+    chartData: selectedPeriods.map(({ revenue }) => ({
+      month: revenue.month,
+      Revenue: revenue.netRevenueCents / 100_000,
+      Plan: revenue.planRevenueCents / 100_000,
     })),
   };
 }
