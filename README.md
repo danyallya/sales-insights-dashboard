@@ -24,6 +24,8 @@ The interface uses a deep graphite canvas, muted emerald accents and a deliberat
 
 The reporting-period selector applies the full-year or one of four stable calendar-quarter ranges to revenue, plan, margin and order fixtures together. Selected months update the KPI cards, revenue trend, plan variance and a polite status message. Customer account rows are separate full-year synthetic examples and are labeled as unfiltered. Period-change indicators are omitted because the sample has no prior-year comparison series.
 
+The revenue chart shows a loading message while its code chunk loads, explains an empty selection, and isolates rendering errors with a retry action. “View chart data as text” exposes monthly revenue and plan figures for readers who do not use the visual chart. These are local sample states; no live data request or network error state exists because the product has no connected source yet.
+
 The sales-channel selector applies Direct, Wholesale or Marketplace fixtures to the same KPI and chart calculations. The channel allocation is illustrative (50%, 30% and the residual share); cents and whole orders are split per month, with the residual assigned to Marketplace so channel totals reconcile exactly to the source month. No connected channel data exists. The customer account examples remain full-year and unfiltered by both selectors.
 
 ## Delivery and metric review
