@@ -52,6 +52,16 @@
 - Contribution evidence: added a synthetic quarter reconciliation case with expected totals inside the existing product tests; no new issue, collaborator, external post or profile award is claimed.
 - Next: Day 04 — add sales-channel filters and reconcile filtered KPI totals after completing this PR's delivery gates.
 
+## Day 05 — chart states and text summary — 2026-11-02 (Asia/Tehran)
+
+- Startup review: reconciled Day 04 PR #8 as merged from the workspace receipt; fetched `origin/main`, which is clean at the merge commit. Reviewed the existing lazy-loaded chart, aligned period/channel fixtures and prior tests. The chart had a loading placeholder but no empty/error recovery or text equivalent.
+- Implementation: retained the Suspense loading state with consistent status styling; added an empty-data explanation; contained chart render failures and added a retry action; exposed each displayed month's revenue and plan in an expandable text summary. README documents that live network states are not applicable while data remains local.
+- Regression evidence: tests cover summary values, empty data, and error containment/retry. `npm test -- --reporter=dot` passed (5 files, 16 tests); `npm run typecheck` passed; `npm run build` passed (Vite/PWA); `git diff --check` passed. One initial run caught a test cleanup leak between render cases; explicit cleanup fixed it and the full suite passed afterward. No standalone lint script is configured.
+- Review limitations: no dedicated live browser/device review was performed for chart disclosure layout, loading timing, keyboard operation or color contrast. Automated DOM coverage does not replace that check.
+- Contribution evidence: added a synthetic monthly revenue/plan text case to automated tests, aligned with the existing product guide; no external issue, collaborator, post or profile award is claimed.
+- Branch `day-05/chart-states-text-summary` is based on fetched `origin/main`. PR creation, exact-head panel review, checks/conversation review, merge and synchronization remain pending. No `.npmrc`, `.env`, credentials or generated output is included.
+- Next: Day 06 — sortable, paginated customer cohort table, after this branch's delivery gate.
+
 ## Day 04 — sales-channel filters — 2026-10-31 (Asia/Tehran)
 
 - Reconciled Day 03 from workspace receipt: PR #7 targeted `main`, its tested head was `0cf0c7cfbbd491b2b2c0e2bbbdc4ee49b29f99b8`, and GitHub merged it with commit `a0651488081f8c84f29d8eab558b791e44641c47`. Files changed showed 9/9 viewed, Checks had 0 configured runs, and the conversation had no findings. No independent review was claimed. Local `main` was already synchronized and clean.

@@ -15,7 +15,7 @@ Nexus returned 404 for packages used by this project. Following the user's appro
 | 02 | **Done** — layout tokens, persisted theme preference and visible focus styles; PR #4 merged after exact-head panel review. |
 | 03 | **Done** — stable full-year/quarter date ranges update aligned revenue, margin, order and plan metrics plus the chart; account samples are labeled as full-year. PR #7 merged to `main` on 2026-10-29. |
 | 04 | **Done** — added illustrative Direct, Wholesale and Marketplace splits. Channel and quarter filters update aligned KPIs and chart series; per-month channel totals reconcile exactly to the unfiltered revenue, plan, cost and order fixtures. Account rows remain explicitly unfiltered. |
-| 05 | Add chart loading, empty and error states with text summaries. |
+| 05 | **Done** — add chart loading, empty and error states, retry behavior and monthly text summaries. |
 | 06 | Add sortable, paginated customer cohort table. |
 | 07 | Review week-one UI; test KPI, date and filter behavior; fix regressions. |
 | 08 | Add customer detail drawer with revenue history and source attribution. |
@@ -49,7 +49,8 @@ Mark each day Done, In progress or Blocked after its session. Keep tomorrow's ti
 - Day 02: Done. Reconciled PR #4's merge receipt and local `main` at `0f5c990`; appearance preferences, layout tokens and visible focus styles are delivered.
 - Day 03: Done; PR #7 was merged with merge commit `a065148` and local `main` synchronized. The prior date control only changed its label; quarter snapshots now recalculate aligned metrics and chart points. Customer rows remain illustrative full-year samples and say so.
 - Day 04: Done; channel and quarter selections recalculate the same metrics and chart from exact-reconciling illustrative channel splits. Desktop keyboard selection and the focused filter layout were checked. Small-screen layout was updated in CSS; mobile emulation was not available in this review.
-- Next: Day 05 — add chart loading, empty and error states with text summaries.
+- Day 05: Done in code; Suspense shows loading feedback, empty data explains how to recover, chart rendering failures are contained with retry, and a disclosure lists each month's revenue and plan for nonvisual access. Automated tests/typecheck/build pass. Exact-head GitHub panel review and merge are pending.
+- Next: Day 06 — add a sortable, paginated customer cohort table after Day 05 delivery gates.
 
 ## Delivery process update — 2026-10-27
 
